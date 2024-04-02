@@ -71,7 +71,7 @@ body.prepend(ulList);
 function myFunction() {
   return images
     .map((image) => {
-      return <li class="gallery-item">
+      return `<li class="gallery-item">
   <a class="gallery-link" href="${image.original}">
     <img
       class="gallery-image"
@@ -80,7 +80,7 @@ function myFunction() {
       alt="${image.description}"
     />
   </a>
-</li>;
+</li>`;
     })
     .join("");
 }
@@ -91,7 +91,7 @@ ulList.addEventListener("click", (event) => {
   event.preventDefault();
   if (event.target.nodeName === "IMG") {
     const source = event.target.dataset.source;
-    const instance = basicLightbox.create(<img src="${source}">);
-    instance.show();
+    const photo = basicLightbox.create(`<img src="${source}">`);
+    photo.show();
   }
 });
